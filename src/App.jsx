@@ -1,14 +1,10 @@
 import "./App.css";
-import Column from "./components/Column";
-import { useStore } from "./store";
+import Layout from "./components/Layout";
 
 function App() {
-	const columns = useStore((state) => state.columns);
 	return (
-		<div className="flex gap-4 justify-center items-start">
-			{columns.map((column) => {
-				return <Column state={column} key={column} />;
-			})}
+		<div className="flex flex-wrap  md:py-20 py-8 gap-4 text-[#8B949E] justify-center items-start  min-h-screen bg-[#0D1117] ">
+			<Layout />
 		</div>
 	);
 }
