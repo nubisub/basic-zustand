@@ -23,7 +23,7 @@ const Modal = ({ isOpen, onClose, children, state }) => {
 	};
 
 	return (
-		<div className="fixed inset-0 bg-opacity-50 bg-black flex items-center justify-center">
+		<div className="fixed items-start inset-0 bg-opacity-50 bg-black flex sm:m-0 m-2  sm:items-center justify-center">
 			<div className="bg-[#161B22] p-6 w-[600px] border border-[#1d232b] rounded-md shadow-lg">
 				{children}
 				<form onSubmit={handleAddTask} className="flex flex-col gap-1">

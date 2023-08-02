@@ -37,7 +37,7 @@ export default function Board({ state }) {
 				<div
 					ref={provided.innerRef}
 					{...provided.droppableProps}
-					className="border rounded-md p-3 px-4 bg-[#010409] border-[#30363D] xl:w-[33%] max-w-[350px] min-h-[400px]"
+					className="border rounded-md p-3 px-4 bg-[#010409] min-w-[350px] border-[#30363D] xl:w-[33%] max-w-[350px] min-h-[400px]"
 				>
 					{/* circle div */}
 					<div className="flex gap-2 items-center mx-1 mb-1">
