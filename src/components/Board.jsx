@@ -16,7 +16,7 @@ export default function Board({ state }) {
 	useEffect(() => {
 		const tasks = JSON.parse(localStorage.getItem("tasks"));
 		if (tasks) {
-			setTasks(tasks);
+			// setTasks(tasks);
 		}
 	}, []);
 

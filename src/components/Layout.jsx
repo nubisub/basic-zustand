@@ -21,19 +21,14 @@ export default function Layout() {
 		const { source, destination } = result;
 		if (source.droppableId !== destination.droppableId) {
 			const column = filterTasks(source.droppableId);
-			const column2 = filterTasks2(source.droppableId);
 			const column3 = filterTasks(destination.droppableId);
-
-			if (destination.index === column3.length) {
-				destination.index = destination.index + 1;
-			}
-
 			const [removed] = column.splice(source.index, 1);
+			console.log(removed);
 			removed.status = destination.droppableId;
+			column3.splice(destination.index, 0, removed);
+			const column4 = filterTasks2(destination.droppableId);
 
-			column2.splice(destination.index, 0, removed);
-
-			setTasks([...column, ...column2]);
+			setTasks([...column3, ...column4]);
 		} else {
 			const column = filterTasks(source.droppableId);
 			const [removed] = column.splice(source.index, 1);
