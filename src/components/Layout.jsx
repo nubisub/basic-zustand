@@ -29,7 +29,6 @@ export default function Layout() {
 
 	const onDragTask = (result) => {
 		const { source, destination } = result;
-		console.log(boards);
 
 		if (!result.destination) {
 			return;

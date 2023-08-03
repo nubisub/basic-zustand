@@ -28,15 +28,18 @@
 ::-webkit-calendar-picker-indicator {
 	filter: invert(1);
 }
-/* scroll smoot */
-html {
-	scroll-behavior: smooth;
-	background-color: #0d1117;
-}
 ::-webkit-scrollbar {
-	height: 11px; /* height of horizontal scrollbar ← You're missing this */
-	width: 11px; /* width of vertical scrollbar */
+	height: 8px; /* height of horizontal scrollbar ← You're missing this */
+	width: 8px; /* width of vertical scrollbar */
 	border: 1px solid #9ca3af;
+}
+html, body, #root {
+	width: fit-content;
+	height: 100%;
+}
+body {
+	background-color: #0d1117;
+	color: #fff;
 }
 
 .scroll::-webkit-scrollbar-track {
