@@ -16,7 +16,7 @@ const store = (set) => ({
 			id: idInProgress,
 			title: "In Progress",
 			description: "Tasks that are in progress",
-			color: "bg-yellow-500",
+			color: "bg-indigo-500",
 		},
 		{
 			id: idDone,
@@ -25,6 +25,33 @@ const store = (set) => ({
 			color: "bg-green-500",
 		},
 	],
+	setBoards: (boards) => {
+		set((state) => ({
+			boards: boards,
+		}));
+	},
+	deleteBoard: (id) => {
+		set((state) => ({
+			boards: state.boards.filter((board) => board.id !== id),
+		}));
+	},
+	addBoard: (id, title, description, color) => {
+		set((state) => ({
+			boards: [...state.boards, { id, title, description, color }],
+		}));
+	},
+	editBoard: (id, title, description, color) => {
+		set((state) => ({
+			boards: state.boards.map((board) => {
+				if (board.id === id) {
+					return { ...board, title, description, color };
+				} else {
+					return board;
+				}
+			}),
+		}));
+	},
+
 	tasks: [
 		{
 			id: uuidv4(),
@@ -77,10 +104,7 @@ const store = (set) => ({
 	],
 	addTask: (id, boardId, title, description, dueDate) => {
 		set((state) => ({
-			tasks: [
-				...state.tasks,
-				{ id, boardId, title, description, dueDate},
-			],
+			tasks: [...state.tasks, { id, boardId, title, description, dueDate }],
 		}));
 	},
 	deleteTask: (id) => {

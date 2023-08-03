@@ -13,18 +13,39 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-	background: #555;
-	border-radius: 5px;
+	background: #9ca3af;
+	border-radius: 50px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-	background: #424242;
+	background: #d1d5db;
 }
+::-webkit-scrollbar-thumb:active {
+	background: #edeef0;
+}
+
 ::-webkit-calendar-picker-indicator {
-    filter: invert(1);
+	filter: invert(1);
 }
 /* scroll smoot */
 html {
 	scroll-behavior: smooth;
+	background-color: #0d1117;
+}
+::-webkit-scrollbar {
+	height: 11px; /* height of horizontal scrollbar ← You're missing this */
+	width: 11px; /* width of vertical scrollbar */
+	border: 1px solid #9ca3af;
+}
+
+.scroll::-webkit-scrollbar-track {
+	background: #010409;
+}
+.scroll::-webkit-scrollbar-thumb {
+	background: #9ca3af;
+	border-radius: 50px;
+}
+.scroll::-webkit-scrollbar {
+	width: 5px;
 }

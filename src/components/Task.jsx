@@ -19,7 +19,7 @@ export default function Task({ index, state }) {
 		<Draggable key={state.id} draggableId={state.id} index={index}>
 			{(provided) => (
 				<li
-					className="bg-thirdBlack text-slate-300 my-2 rounded border border-[#30363D] border-opacity-50  p-3 flex flex-col gap-2 "
+					className="bg-thirdBlack text-slate-300 mb-3 rounded border border-[#30363D] border-opacity-50  p-3 flex flex-col gap-2 "
 					ref={provided.innerRef}
 					{...provided.draggableProps}
 					{...provided.dragHandleProps}
@@ -28,7 +28,7 @@ export default function Task({ index, state }) {
 						<h1 className="font-semibold">{state.title}</h1>
 						<button
 							onClick={handleDeleteTask}
-							className="text-rose-500 hover:text-rose-600  hover:bg-gray-700 rounded-full p-1"
+							className="text-rose-500/70 hover:text-rose-600  hover:bg-gray-700 rounded-full p-1"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
