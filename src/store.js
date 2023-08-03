@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 const idTODO = uuidv4();
 const idInProgress = uuidv4();
 const idDone = uuidv4();
+import { persist } from "zustand/middleware";
 
 const store = (set) => ({
 	boards: [
@@ -135,4 +136,4 @@ const store = (set) => ({
 	},
 });
 
-export const useStore = create(store);
+export const useStore = create(persist(store, { name: "kanban" }));
