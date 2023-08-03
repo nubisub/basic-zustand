@@ -19,7 +19,7 @@ export default function Task({ index, state }) {
 		<Draggable key={state.id} draggableId={state.id} index={index}>
 			{(provided) => (
 				<li
-					className="bg-[#161B22] text-slate-300 my-2 rounded border border-[#30363D] border-opacity-50  p-3 flex flex-col gap-2 "
+					className="bg-thirdBlack text-slate-300 my-2 rounded border border-[#30363D] border-opacity-50  p-3 flex flex-col gap-2 "
 					ref={provided.innerRef}
 					{...provided.draggableProps}
 					{...provided.dragHandleProps}
@@ -64,5 +64,4 @@ export default function Task({ index, state }) {
 Task.propTypes = {
 	state: PropTypes.object,
 	index: PropTypes.number,
-	status: PropTypes.string,
 };

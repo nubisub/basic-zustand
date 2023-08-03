@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 import { v4 as uuidv4 } from "uuid";
 import { useStore } from "../store";
-const Modal = ({ isOpen, onClose, children, state }) => {
+const Modal = ({ isOpen, onClose, children, boardId }) => {
 	const addTask = useStore((state) => state.addTask);
 	if (!isOpen) return null;
 	const handleAddTask = (e) => {
@@ -18,7 +18,7 @@ const Modal = ({ isOpen, onClose, children, state }) => {
 		const title = e.target.title.value;
 		const description = e.target.description.value;
 		const dueDate = e.target.dueDate.value;
-		addTask(uuidv4(), title, description, dueDate, state);
+		addTask(uuidv4(), boardId, title, description, dueDate);
 		onClose();
 	};
 
@@ -82,7 +82,7 @@ Modal.propTypes = {
 	isOpen: PropTypes.bool.isRequired,
 	onClose: PropTypes.func.isRequired,
 	children: PropTypes.node.isRequired,
-	state: PropTypes.string.isRequired,
+	boardId: PropTypes.string,
 };
 
 export default Modal;

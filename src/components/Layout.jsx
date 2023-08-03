@@ -7,11 +7,11 @@ export default function Layout() {
 	const tasks = useStore((state) => state.tasks);
 	const setTasks = useStore((state) => state.setTasks);
 
-	const filterTasks = (status) => {
-		return tasks.filter((task) => task.status === status);
+	const filterTasks = (boardId) => {
+		return tasks.filter((task) => task.boardId === boardId);
 	};
-	const filterTasks2 = (status) => {
-		return tasks.filter((task) => task.status !== status);
+	const filterTasks2 = (boardId) => {
+		return tasks.filter((task) => task.boardId !== boardId);
 	};
 
 	const onDragEnd = (result) => {
@@ -23,8 +23,7 @@ export default function Layout() {
 			const column = filterTasks(source.droppableId);
 			const column3 = filterTasks(destination.droppableId);
 			const [removed] = column.splice(source.index, 1);
-			console.log(removed);
-			removed.status = destination.droppableId;
+			removed.boardId = destination.droppableId;
 			column3.splice(destination.index, 0, removed);
 			const column4 = filterTasks2(destination.droppableId);
 
@@ -41,8 +40,25 @@ export default function Layout() {
 	return (
 		<DragDropContext onDragEnd={onDragEnd}>
 			{boards.map((column) => {
-				return <Board state={column} key={column} />;
+				return <Board board={column} key={column.id} />;
 			})}
+			<button className="text-left rounded-lg flex items-center px-3 gap-x-1 p-3 bg-secBlack text-sm hover:bg-[#23272f] hover:text-slate-200  border-borderMain hover:border-[#3f454b] border text-slate-300">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					strokeWidth="1.5"
+					stroke="currentColor"
+					className="w-4 h-4"
+				>
+					<path
+						strokeLinecap="round"
+						strokeLinejoin="round"
+						d="M12 4.5v15m7.5-7.5h-15"
+					/>
+				</svg>
+				Add Board
+			</button>
 		</DragDropContext>
 	);
 }
